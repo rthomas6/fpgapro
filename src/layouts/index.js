@@ -5,6 +5,8 @@ import Helmet from 'react-helmet'
 import Navbar from '../components/Navbar'
 import './all.sass'
 
+import 'prismjs/themes/prism-okaidia.css'
+
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet title="FPGA Pro" />
