@@ -6,13 +6,13 @@ const Navbar = () => (
     <div className="container">
       <div className="navbar-brand">
         <Link to="/" className="navbar-item">
-          <h1 className="title">
+          <h1 className="title has-text-white">
             FPGA PRO
           </h1>
         </Link>
       </div>
       <div className="navbar-start">
-        <Link className="navbar-item" to="/about">
+        <Link className="navbar-item has-text-white" to="/about">
           About
         </Link>
       </div>
