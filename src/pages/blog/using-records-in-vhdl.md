@@ -89,8 +89,8 @@ example_inst : axi_example_peripheral
     port_map(
         clk           => clk,
         data          => data,
-        s_axi_gp0_in  => periph_axi.in,
-        s_axi_gp0_out => periph_axi.out
+        s_axi_gp0_in  => periph_axi.from_master,
+        s_axi_gp0_out => periph_axi.to_master
     );
 ```
 The individual protocol signals are defined in the type, and they all get assigned at once instead of individually.
@@ -153,8 +153,8 @@ package my_package is
 
     --Combine the two types together to have the complete AXI bus in one signal internally
     type AXI_slave is record
-        out : to_AXI_master;
-        in  : from_AXI_master;
+        to_master : to_AXI_master;
+        from_master : from_AXI_master;
     end record AXI_slave;
 
 end my_package;
@@ -181,9 +181,9 @@ architecture arch of ddr3_controller is
     signal AXI_i : AXI_slave; --An internal AXI bus to do some processing
     signal axi_write_data : std_logic_vector(31 downto 0);
 begin
-    AXI_i.in <= m_axi_gp0_in;
-    AXI_i.out <= m_axi_gp0_out;
-    axi_write_data <= AXI_i.in.wdata;
+    AXI_i.from_master <= m_axi_gp0_in;
+    AXI_i.to_master <= m_axi_gp0_out;
+    axi_write_data <= AXI_i.from_master.wdata;
 
     --etc
 
