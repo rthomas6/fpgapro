@@ -42,6 +42,7 @@ example_inst : axi_example_peripheral
     port_map(
         clk               => clk,
         data              => data,
+        s_axi_gp0_aclk    => aclk,
         s_axi_gp0_arvalid => periph_axi_arvalid,
         s_axi_gp0_awvalid => periph_axi_awvalid,
         s_axi_gp0_bready  => periph_axi_bready,
@@ -69,7 +70,6 @@ example_inst : axi_example_peripheral
         s_axi_gp0_awlen   => periph_axi_awlen,
         s_axi_gp0_awqos   => periph_axi_awqos,
         s_axi_gp0_wstrb   => periph_axi_wstrb,
-        s_axi_gp0_aclk    => periph_axi_aclk,
         s_axi_gp0_arready => periph_axi_arready,
         s_axi_gp0_awready => periph_axi_awready,
         s_axi_gp0_bvalid  => periph_axi_bvalid,
@@ -87,10 +87,11 @@ This is what the same port assignment can look like using record types:
 ```vhdl
 example_inst : axi_example_peripheral
     port_map(
-        clk           => clk,
-        data          => data,
-        s_axi_gp0_in  => periph_axi.from_master,
-        s_axi_gp0_out => periph_axi.to_master
+        clk            => clk,
+        data           => data,
+        s_axi_gp0_aclk => aclk,
+        s_axi_gp0_in   => periph_axi.from_master,
+        s_axi_gp0_out  => periph_axi.to_master
     );
 ```
 The individual protocol signals are defined in the type, and they all get assigned at once instead of individually.
@@ -137,7 +138,6 @@ package my_package is
     end record from_AXI_master;
 
     type to_AXI_master is record
-        aclk : std_logic;
         arready : std_logic;
         awready : std_logic;
         bvalid : std_logic;
@@ -170,10 +170,11 @@ use work.my_package.all;
 
 entity axi_example_peripheral is
   port (
-    clk           : in std_logic;
-    data          : in std_logic_vector(31 downto 0);
-    m_axi_gp0_in  : in from_AXI_master;
-    m_axi_gp0_out : out to_AXI_master;
+    clk            : in std_logic;
+    data           : in std_logic_vector(31 downto 0);
+    s_axi_gp0_aclk : in std_logic;
+    s_axi_gp0_in   : in from_AXI_master;
+    s_axi_gp0_out  : out to_AXI_master;
     );
 end axi_example_peripheral;
 
