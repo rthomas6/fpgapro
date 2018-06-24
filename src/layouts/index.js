@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import Navbar from '../components/Navbar'
 import './all.sass'
 
-import 'prismjs/themes/prism-okaidia.css'
+import 'prismjs/themes/prism-tomorrow.css'
 
 const TemplateWrapper = ({ children }) => (
   <div>
