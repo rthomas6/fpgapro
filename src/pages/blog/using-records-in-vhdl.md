@@ -134,7 +134,7 @@ package my_package is
         awlen : std_logic_vector(3 downto 0);
         awqos : std_logic_vector(3 downto 0);
         wstrb : std_logic_vector(3 downto 0);
-    end record from_AXI;
+    end record from_AXI_master;
 
     type to_AXI_master is record
         aclk : std_logic;
@@ -149,7 +149,7 @@ package my_package is
         bresp : std_logic_vector(1 downto 0);
         rresp : std_logic_vector(1 downto 0);
         rdata : std_logic_vector(31 downto 0);
-    end record to_AXI;
+    end record to_AXI_master;
 
     --Combine the two types together to have the complete AXI bus in one signal internally
     type AXI_slave is record
