@@ -97,7 +97,7 @@ example_inst : axi_example_peripheral
 The individual protocol signals are defined in the type, and they all get assigned at once instead of individually.
 Now imagine the data from this peripheral needs to be delayed by one clock cycle to line up correctly with another part of the design, or that there are two data sources into this peripheral that must be muxed. Which code example would be easier to change?
 
-##How to Use Records in A Design
+##How to Use Records in a Design
 The most effective way to define custom record types is to put these type definitions in a package that gets called into other files. This allows the use of these types in all parts of the design, including in entity definitions.
 
 ```vhdl
