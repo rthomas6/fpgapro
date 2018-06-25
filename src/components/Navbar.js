@@ -10,7 +10,7 @@ const Navbar = () => (
         <Link to="/" className="navbar-item">
           <object class="icon is-large" type="image/svg+xml" data={logo}></object>
           <h1 className="title has-text-white">
-            FPGA PRO
+            FPGA Pro
           </h1>
         </Link>
       </div>
