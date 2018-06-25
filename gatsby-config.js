@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'FPGA Pro',
+    description: 'A site about building FPGA designs, and how to be better at it.',
+    siteUrl: 'https://www.fpgapro.com'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -41,6 +43,9 @@ module.exports = {
       options: {
         trackingId: "UA-121301765-1",
       },
+    },
+    {
+      resolve: 'gatsby-plugin-feed'
     },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
