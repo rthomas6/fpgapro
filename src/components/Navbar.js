@@ -9,7 +9,7 @@ const Navbar = () => (
     <div className="container">
       <div className="navbar-brand">
         <Link to="/" className="navbar-item">
-          <object class="image is-48x48" type="image/svg+xml" data={logo}></object>
+          <object className="image is-48x48" type="image/svg+xml" data={logo}></object>
           <h1 className="title has-text-white">
             FPGA Pro
           </h1>
