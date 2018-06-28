@@ -3,7 +3,7 @@ templateKey: 'blog-post'
 title: 'Using Records in VHDL'
 date: 2018-06-09
 description: >-
-    Using records in VHDL designs can save you dozens of hours and hundreds of lines in the long run.
+    How to use records in VHDL designs to make them easier to understand and less error prone.  
 tags:
   - VHDL
   - Style
