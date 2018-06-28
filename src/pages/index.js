@@ -35,7 +35,7 @@ export default class IndexPage extends React.Component {
                 </div>
                 <div className="message-body">
                     <p>
-                      {post.excerpt}
+                      {post.frontmatter.description}
                     </p>
                 </div>
               </article>
@@ -71,6 +71,7 @@ export const pageQuery = graphql`
             title
             templateKey
             date(formatString: "MMMM DD, YYYY")
+            description
           }
         }
       }
